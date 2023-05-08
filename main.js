@@ -1,59 +1,84 @@
-
-function encriptar(){
-
-  var texto = document.getElementById("textarea").value;
-  
-
-    var textoCifrado = texto.replace(/e/igm, "enter");
-    var textoCifrado = textoCifrado.replace(/i/igm,"imes");
-    var textoCifrado = textoCifrado.replace(/a/igm,"ai");
-    var textoCifrado = textoCifrado.replace(/o/igm,"ober");
-    var textoCifrado = textoCifrado.replace(/u/igm,"ufat");
-
-    document.getElementById("muñecoimg").style.display = "none";
-    document.getElementById("texto1").style.display = "none";
-    document.getElementById("texto2").innerHTML= textoCifrado;
-    document.getElementById("btn-copiar").style.display = "show";
-    document.getElementById("btn-copiar").style.display = "inherit";
-    document.getElementById("escuchador").style.display = "show";
-    document.getElementById("escuchador").style.display = "inherit";
+    const textArea = document.querySelector(".textarea");
+    const mensaje = document.querySelector(".parrafo");
+    const muñeco = document.querySelector(".muñeco");
+    const subtitulo = document.querySelector("#texto1");
+    const copiador = document.querySelector("#btn-copiar");
+    const escuchar = document.querySelector("#escuchador");
 
 
-}
+    function btnEncriptar (){
+       const textoEncriptado = encriptar(textArea.value)
+       mensaje.value = textoEncriptado
+       textArea.value = "";
+       muñeco.style.display ="none";
+       subtitulo.style.display = "none";
+       copiador.style.display = "show";
+       copiador.style.display = "inherit";
+       escuchar.style.display = "show";
+       escuchar.style.display = "inherit";
+      
+    }
 
-function desencriptar() {
-  
-  var texto = document.getElementById("textarea").value;
-  
+    function encriptar(stringEncriptado){
+        let textCifrado = [["e", "enter"], 
+        ["i", "imes"],
+         ["a", "ai"],
+         ["o", "ober"], 
+         ["u", "ufat"]]
+        stringEncriptado = stringEncriptado.toLowerCase()
 
-  var textoCifrado = texto.replace(/enter/igm,"e");
-  var textoCifrado = textoCifrado.replace(/imes/igm,"i");
-  var textoCifrado = textoCifrado.replace(/ai/igm,"a");
-  var textoCifrado = textoCifrado.replace(/ober/igm,"o");
-  var textoCifrado = textoCifrado.replace(/ufat/igm,"u");
+        for(let i = 0; i < textCifrado.length; i++){
+            if(stringEncriptado.includes(textCifrado[i][0])){
+
+              stringEncriptado = stringEncriptado.replaceAll(textCifrado[i][0], textCifrado[i][1])
+
+            }
+
+        }
+        return stringEncriptado
+    }
+
+       function btnDesencriptar() {
+         const textoEncriptado = desencriptar(textArea.value);
+         mensaje.value = textoEncriptado;
+         textArea.value = "";
+         subtitulo.style.display = "none";
+         copiador.style.display = "show";
+         copiador.style.display = "inherit";
+         escuchar.style.display = "show";
+         escuchar.style.display = "inherit";
+      
+       }
 
 
+    function desencriptar(stringDesencriptado) {
+      let textCifrado = [
+        ["e", "enter"],
+        ["i", "imes"],
+        ["a", "ai"],
+        ["o", "ober"],
+        ["u", "ufat"]];
+      stringDesencriptado = stringDesencriptado.toLowerCase();
 
-  document.getElementById("muñecoimg").style.display = "none";
-  document.getElementById("texto1").style.display = "none";
-  document.getElementById("texto2").innerHTML = textoCifrado;
-  document.getElementById("btn-copiar").style.display = "show";
-  document.getElementById("btn-copiar").style.display = "inherit";
-  document.getElementById("escuchador").style.display = "show";
-  document.getElementById("escuchador").style.display = "inherit";
-}
+      for (let i = 0; i < textCifrado.length; i++) {
+        if (stringDesencriptado.includes(textCifrado[i][1])) {
+          stringDesencriptado = stringDesencriptado.replaceAll(textCifrado[i][1],textCifrado[i][0]);
+        }
+      }
+      return stringDesencriptado;
+    }
 
 
 /* función para escuchar el mensaje */   
 function speech(){
   
-  var voz = new SpeechSynthesisUtterance();
+  let voz = new SpeechSynthesisUtterance();
   voz.lang = "es-Es";
   voz.volume = 1;
   voz.rate = 0.5;
   voz.pitch = 1;
 
-  var text = document.getElementById("texto2").value;
+  let text = document.getElementById("texto2").value;
   
     if(text != ""){
       voz.text=text
@@ -61,13 +86,11 @@ function speech(){
     }
   }
 
-
-
   /* funcion de copiar el texto */
 
 function copiar(){
 
-  var contenido = document.querySelector("#texto2");
+  let contenido = document.querySelector("#texto2");
   contenido.select();
   document.execCommand("copy");
 
