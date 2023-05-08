@@ -7,6 +7,18 @@ body{
   width: 100%;
   height: 40px;
 }
+.github{
+  position: relative;
+  right: 30px;
+  bottom: 5px;
+  transition: 1.5s;
+
+}
+.linkedin{
+  position: relative;
+  right: 220px;
+
+}
 header img{
   margin-left: 95px;
   padding: 5px;
@@ -165,6 +177,10 @@ width: 60%;
 #btn-copiar:hover{
     background: #c5ccd4;
     color: #2b5e94;
+}
+.escuchar:hover{
+  background: #c5ccd4;
+  color: #2b5e94;
 }
 
 footer{
