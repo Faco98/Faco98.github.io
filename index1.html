@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Alura Challenge - Desafío 1/reset.css">
+  <link rel="stylesheet" href="estilos.css">
+  <script src="/Alura Challenge - Desafío 1/main.js"></script>
+  <title>Encriptador de Texto</title>
+</head>
+<body>
+  <header>
+    <img src="/Alura Challenge - Desafío 1/logo/Vector.png" alt="Logo encriptador Alura">
+
+  </header>
+
+  <main>
+
+    <section class="section1">
+
+      <textarea class="textarea"  id="textarea" placeholder="Ingrese el texto aquí"></textarea>
+
+    
+      <div class="advertencia-texto">
+        <img src="logo/Frame 1.png" alt="icono de explamación">
+      </div>
+        
+  
+      <div class="contenedor-botones">
+
+        <button type="button" name="button" class="boton-encriptar" id="btn-encriptar" onclick="encriptar()"> Encriptar </button>
+        <button type="button" name="button" class="boton-desencriptar" id="btn-desencriptar" onclick="desencriptar()"> Desencriptar </button>
+
+      </div>
+    </section>
+
+
+    <section class="section2" id="section2">
+
+      <div class="muñeco"><img src="/Alura Challenge - Desafío 1/muñeco/Muñeco.png" id="muñecoimg"alt="un muñeco con una lupa"></div>
+
+      <div class="subtitulo" id="texto1"><h3>Ningún mensaje fue encontrado</h3></div>
+
+      <div>
+        <textarea class="parrafo" id="texto2"  readonly="readonly" rows="9" placeholder="Ingrese el texto que desees encriptar o desencriptar."></textarea>
+        <button type="button" value ="Copiar" id="btn-copiar" class = "copiador" onclick="copiar()">Copiar</button>
+        <button type="button" value="Escuchar" id="escuchador" class="escuchar" onclick="speech()">Escuchar</button>
+      </div>
+
+    </section>
+    
+  </main>
+
+  <footer>
+    <p> &copyEncriptador de Texto - 2023 - facutomasr@gmail.com</p>
+  </footer>
+  
+
+
+</body>
+</html>
