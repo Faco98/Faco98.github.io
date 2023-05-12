@@ -191,3 +191,73 @@ footer{
 }
 
 
+/* Responsive para celular */
+
+@media (max-width:460px){
+  main{
+    flex-direction: column;
+  }
+  .linkedin{
+    left: 49px;
+    bottom: 59px;
+  }
+  .section1{
+    width: 100%;
+  }
+  .textarea{
+    font-size: 1.5rem;
+    height: 215px;
+  }
+  .advertencia-texto{
+    margin-left: 63px;
+  }
+  .contenedor-botones{
+    left: -49px;
+    top: 281px;
+    gap: 3px;
+    margin-left: 60px;
+  }
+  .boton-encriptar{
+    width: 166px;
+    height: 45px;
+  }
+  .boton-desencriptar{
+    width: 166px;
+    height: 45px;
+  }
+  .boton-encriptar:hover{
+    transform: none;
+  }
+  .boton-desencriptar:hover{
+    transform: none;
+  }
+  .section2{
+    width: 100%;
+    margin-top: 26px;
+  }
+  .muñeco{
+    display: none;
+  }
+  .subtitulo{
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+  .btn-secundario{
+   position: absolute;
+   margin: 160px 0;
+  }
+  .copiador{
+    margin-left: 40px;
+    width: 150px;
+    margin: 20px 100px;
+   
+    
+  }
+  .escuchar{
+    width: 150px;
+    margin: 20px 100px
+
+  }
+
+ 
+}
